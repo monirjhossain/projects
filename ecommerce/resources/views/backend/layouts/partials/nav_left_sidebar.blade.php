@@ -3,7 +3,7 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                    <img alt="image" class="rounded-circle" src="img/profile_small.jpg" />
+                    <img alt="image" class="rounded-circle" src=" {{ asset('assets/backend/img/profile_small.jpg')}} " />
                     <a data-toggle="dropdown" class="dropdown-toggle" href="">
                         <span class="block m-t-xs font-bold"></span>
                         <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
@@ -30,22 +30,15 @@
                 </div>
             </li>
             <li class="active">
-                <a href="index-2.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span>
-                    <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li class="active"><a href="">Dashboard 1</a></li>
-                    <li><a href="">Dashboard 2</a></li>
-                </ul>
+                <a href="{{ url('dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span>   
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Sales</span><span
-                        class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="#">Web Order</a></li>
-                    <li><a href="#">Internal Order</a></li>
-                    <li><a href="#">Invoice</a></li>
-                </ul>
+                <a href="{{ url('/admin/category') }}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Category</span> 
             </li>
+            <li>
+                <a href="{{ url('/admin/parent-category') }}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Parent Category</span> 
+            </li>
+
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Product</span><span
                         class="fa arrow"></span></a>

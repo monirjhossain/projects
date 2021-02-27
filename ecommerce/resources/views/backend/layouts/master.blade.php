@@ -25,7 +25,9 @@
             @include('backend.layouts.partials.header_breadcrumb')
             @yield('breadcrumb')
             <div class="wrapper wrapper-content">
+
                 @yield('admin-content')
+                
             </div>
             @include('backend.layouts.partials.footer_copyright')
         </div>
