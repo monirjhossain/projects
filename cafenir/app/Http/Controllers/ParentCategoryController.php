@@ -52,7 +52,6 @@ class ParentCategoryController extends Controller
         ]);
         
         $parentcategory = ParentCategory::find($id);
-
         $parentcategory->p_name = $request->input('p_name');
         $parentcategory->p_category_photo = $request->input('p_category_photo');
 

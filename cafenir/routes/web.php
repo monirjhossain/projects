@@ -30,12 +30,15 @@ Route::get('admin/category', 'CategoryController@index');
 Route::get('admin/create/category', 'CategoryController@create');
 Route::post('admin/category-save', 'CategoryController@categorySave');
 Route::get('admin/category-edit/{id}', 'CategoryController@categoryEdit'); 
+Route::put('admin/category-update/{id}', 'CategoryController@categoryUpdate'); 
 Route::get('admin/category.destroy/{id}', 'CategoryController@destroy');
 
 
 Route::get('admin/product', 'ProductController@index');
 Route::get('admin/create/product', 'ProductController@create');
 Route::post('admin/product-save', 'ProductController@productSave');
+Route::get('admin/product-edit/{id}', 'ProductController@productEdit');
+Route::put('admin/product-update/{id}', 'ProductController@productUpdate');
 Route::get('admin/product.destroy/{id}', 'ProductController@destroy');
 
 

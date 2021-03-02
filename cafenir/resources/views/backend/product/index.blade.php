@@ -34,14 +34,11 @@
                         <td>{{ $product->element }}</td>
                         <td>{{ $product->price }}</td>
                         <td><img src="{{ asset('product_photo/'. $product->product_photo) }}" height="50" width="70" alt=""></td>
-                        <td><a href="product.destroy/{{ $product->id }}" class="btn btn-danger">Delete</a></td>
-                        {{-- <td>
-                            <form action="{{ url('product.destroy', $product->id) }}" method="HEAD">
-                                <button type="submit" class="btn btn-sm btn-danger">Delete</button> 
-                                @method('HEAD')
-                                @csrf
-                            </form>    
-                        </td> --}}
+                        
+                        <td>
+                            <a href="product-edit/{{ $product->id }}" class="btn btn-info">Edit</a>
+                            <a href="product.destroy/{{ $product->id }}" class="btn btn-danger">Delete</a>
+                        </td>
                         </tr>
                         @endforeach
                     </tbody>

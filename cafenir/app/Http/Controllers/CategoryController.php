@@ -54,11 +54,37 @@ class CategoryController extends Controller
             'parent_categories'=> $parent_categories]);
     }
 
+
+    public function categoryUpdate(Request $request, $id){
+        
+        $request->validate([
+            'parent_category_id' => 'required',
+            'name' => 'required',
+            'category_photo' => 'required'
+        ]);
+
+        $categoryupdate = Category::find($id);
+        $categoryupdate->parent_category_id = $request->input('parent_category_id');
+        $categoryupdate->name = $request->input('name');
+        $categoryupdate->category_photo = $request->input('category_photo');
+
+
+        if($request->hasFile('category_photo')){
+            $file = $request->file('category_photo');
+            $extention = $file->getClientOriginalExtension();
+            $category_photo = time() . '.' . $extention;
+            $file->move('category_photo', $category_photo);
+            $categoryupdate->category_photo = $category_photo;
+        }
+        $categoryupdate->Save();
+        return redirect('admin/category')->with('success', 'Your Category has been Updated!');
+    }
+
     public function destroy($id)
     {
         //dd($request);
         $categorydelete = Category::find($id);
         $categorydelete->delete();
-        return redirect('admin/category')->with('success', 'Your Category has been deleted');
+        return redirect('/admin/category')->with('success', 'Your Category has been deleted');
     }
 }
