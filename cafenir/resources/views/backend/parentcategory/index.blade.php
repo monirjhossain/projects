@@ -32,7 +32,7 @@
                         <td>{{ $parentcategory->p_name }}</td>
                         <td><img src="{{ asset('p_category_photo/'. $parentcategory->p_category_photo) }}" height="50" width="70" alt=""></td>
                         <td>
-                            {{-- <a href="category-edit/{{ $category->id }}" class="btn btn-info">Edit</a> --}}
+                            <a href="parentcategory-edit/{{ $parentcategory->id }}" class="btn btn-info">Edit</a>
                             <a href="parentcategory.destroy/{{ $parentcategory->id }}" class="btn btn-danger">Delete</a>
                         </td>
                         </tr>

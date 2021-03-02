@@ -14,7 +14,7 @@ class CreateParentCategoriesTable extends Migration
     public function up()
     {
         Schema::create('parent_categories', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
             $table->string('p_name');
             $table->string('p_category_photo');
             $table->timestamps();

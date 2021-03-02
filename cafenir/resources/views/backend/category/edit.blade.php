@@ -11,15 +11,17 @@
         <div class="container col-md-8">
             
             <div class="wrapper wrapper-content">
-                <form method="POST" action="{{ url('admin/category-save') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ url('admin/category-update', $categories->id) }}" enctype="multipart/form-data">
+                    <input type="hidden" name="id" id="id" value="{{ $categories->id }}">
                     @csrf
+                    @method('PUT')
                 <div class="form-group">
                     <label for="exampleInputEmail1">Category Name</label>
-                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Category Name">
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Category Name" value="{{ $categories->name }}">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Parent Category Name</label>
-                    <select class="form-control" name="parent_category_id">
+                    <select class="form-control" name="parent_category_id" value="{{ $categories->parent_category_id }}">
                         @foreach ($parent_categories as $item)
                             <option value="{{ $item->id }}">{{ $item->p_name }}</option>
                         @endforeach

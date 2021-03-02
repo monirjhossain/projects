@@ -20,24 +20,24 @@
                         <tr>
                         <th scope="col">SL</th>
                         <th scope="col">Category Name</th>
+                        <th scope="col">Parent Category Name</th>
                         <th scope="col">Photo</th>
                         <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        
                         @foreach ($categories as $category)
                         <tr>
-                        <td>{{ $loop->index+1 }}</td>
+                        <td>{{ $category->index+1 }}</td>
                         <td>{{ $category->name }}</td>
+
+                        <td>{{ $category->parent_category_id }}</td>
+
                         <td><img src="{{ asset('category_photo/'. $category->category_photo) }}" height="50" width="70" alt=""></td>
                         <td>
                             <a href="category-edit/{{ $category->id }}" class="btn btn-info">Edit</a>
                             <a href="category.destroy/{{ $category->id }}" class="btn btn-danger">Delete</a>
-                            {{-- <form action="{{ url('category.destroy', $category->id) }}" method="HEAD">
-                                <button type="submit" class="btn btn-sm btn-danger">Delete</button> 
-                                @method('HEAD')
-                                @csrf
-                            </form>    --}}
                         </td>
                         </tr>
                         @endforeach

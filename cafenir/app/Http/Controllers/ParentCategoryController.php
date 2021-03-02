@@ -38,8 +38,38 @@ class ParentCategoryController extends Controller
         return redirect('/admin/parentcategory')->with('success', 'Parent Category Uploaded successfully');
     }
 
+        public function parentcategoryEdit($id){
+           $parentcategory = ParentCategory::find($id);
+            return view('backend.parentcategory.edit', compact('parentcategory', $parentcategory));
+        }
+
+    //update image
+    public function parentcategoryUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'p_name' => 'required',
+            'p_category_photo' => 'required'
+        ]);
+        
+        $parentcategory = ParentCategory::find($id);
+
+        $parentcategory->p_name = $request->input('p_name');
+        $parentcategory->p_category_photo = $request->input('p_category_photo');
+
+        if($request->hasFile('p_category_photo')){
+            $file = $request->file('p_category_photo');
+            $extension = $file->getClientOriginalExtension();
+            $p_category_photo = time() . '.' . $extension;
+            $file->move('p_category_photo', $p_category_photo);
+            $parentcategory->p_category_photo = $p_category_photo;
+        }
+        $parentcategory->save();
+        return redirect('/admin/parentcategory')->with('success', 'Your Parent Category has been updated');
+        
+    }
+
     // public function edit($id){
-    //     $editcatagory = Category::find($id);
+    //     $editcatagory = ParentCategory::find($id);
     //     return view('backend.category.update')->with('editcategory', $editcatagory);
     // }
 

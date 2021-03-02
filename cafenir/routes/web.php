@@ -16,16 +16,20 @@ Route::get('/contact', 'FrontendController@contact');
 Route::get('admin/dashboard', 'BackendController@index');
 Route::get('admin/contact', 'BackendController@contact');
 
-
+//Parent Category Routes
 Route::get('admin/parentcategory', 'ParentCategoryController@index');
 Route::get('admin/create/parentcategory', 'ParentCategoryController@create');
 Route::post('admin/parentcategory-save', 'ParentCategoryController@parentcategorySave');
+Route::get('admin/parentcategory-edit/{id}', 'ParentCategoryController@parentcategoryEdit');
+Route::put('admin/parentcategory-update/{id}', 'ParentCategoryController@parentcategoryUpdate');
 Route::get('admin/parentcategory.destroy/{id}', 'ParentCategoryController@destroy');
+
 
 
 Route::get('admin/category', 'CategoryController@index');
 Route::get('admin/create/category', 'CategoryController@create');
 Route::post('admin/category-save', 'CategoryController@categorySave');
+Route::get('admin/category-edit/{id}', 'CategoryController@categoryEdit'); 
 Route::get('admin/category.destroy/{id}', 'CategoryController@destroy');
 
 
