@@ -20,6 +20,10 @@
                     <input type="text" name="p_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Parent Category Name" value="{{ $parentcategory->p_name }}">
                 </div>
                 <div class="form-group">
+                    <label for="exampleInputEmail1">Current Category Photo</label> 
+                    <img src="{{ asset('p_category_photo') }}/{{ $parentcategory->p_category_photo }}" style="border-redious:5px" width="200px" height="150px">
+                </div>
+                <div class="form-group">
                     <label for="exampleFormControlFile1">Category Photo</label>
                     <input type="file" name="p_category_photo" class="form-control-file" id="exampleFormControlFile1" value="{{ $parentcategory->p_category_photo }}">
                 </div>

@@ -19,20 +19,24 @@
                         <th scope="col">Time</th>
                         <th scope="col">Category</th>
                         <th scope="col">Quantity</th>
+                        <th scope="col">Message</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($reservations as $reservation)
                         <tr>
-                        <td>1</td>
-                        <td>Monir Hossain</td>
-                        <td>monirjhossain@gmail.com</td>
-                        <td>0185625369</td>
-                        <td>Narayanganj</td>
-                        <td>5 July</td>
-                        <td>Evening</td>
-                        <td>Espresso Coffee</td>
-                        <td>500 Cup</td>
+                        <td>{{ $loop->index+1 }}</td>
+                        <td>{{ $reservation->name }}</td>
+                        <td>{{ $reservation->email }}</td>
+                        <td>{{ $reservation->phone }}</td>
+                        <td>{{ $reservation->address }}</td>
+                        <td>{{ $reservation->date }}</td>
+                        <td>{{ $reservation->time }}</td>
+                        <td>{{ $reservation->category }}</td>
+                        <td>{{ $reservation->quantity }}</td>
+                        <td>{{ $reservation->message }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

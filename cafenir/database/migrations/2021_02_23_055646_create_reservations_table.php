@@ -23,6 +23,7 @@ class CreateReservationsTable extends Migration
             $table->string('time');
             $table->string('category');
             $table->string('quantity');
+            $table->string('message');
             $table->timestamps();
         });
     }

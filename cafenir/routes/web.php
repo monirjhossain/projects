@@ -11,8 +11,9 @@ Route::get('/', 'FrontendController@index');
 Route::get('/about', 'FrontendController@about');
 Route::get('/menu', 'FrontendController@menu');
 Route::get('/reservation', 'FrontendController@reservation');
-Route::get('/contact', 'FrontendController@contact');
+Route::post('/reservation-confirm', 'FrontendController@reservationConfirm');
 
+Route::get('/contact', 'FrontendController@contact');
 Route::get('admin/dashboard', 'BackendController@index');
 Route::get('admin/contact', 'BackendController@contact');
 
@@ -49,6 +50,10 @@ Route::get('admin/slider.destroy/{id}', 'SliderController@destroy');
 
 
 Route::get('admin/reservation', 'ReservationController@reservation');
+
+
+
+
 
 
 

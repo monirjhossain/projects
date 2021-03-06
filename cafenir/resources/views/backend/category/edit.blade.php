@@ -28,6 +28,10 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="exampleInputEmail1">Current Category Photo</label> 
+                    <img src="{{ asset('category_photo') }}/{{ $categories->category_photo }}" style="border-redious:5px" width="200px" height="150px">
+                </div>
+                <div class="form-group">
                     <label for="exampleFormControlFile1">Category Photo</label>
                     <input type="file" name="category_photo" class="form-control-file" id="exampleFormControlFile1">
                 </div>

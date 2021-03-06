@@ -9,6 +9,11 @@ class ReservationController extends Controller
 {
     public function reservation()
     {
-        return view('backend.reservation.index');
+        $reservation = Reservation::all();
+        return view('backend.reservation.index', [
+            'reservations' => $reservation
+        ]);
     }
+   
+    
 }

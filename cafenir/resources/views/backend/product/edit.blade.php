@@ -26,6 +26,10 @@
                     <input type="text" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Price" value="{{ $products->price }}" >
                 </div>
                 <div class="form-group">
+                    <label for="exampleInputEmail1">Current Product Photo</label> 
+                    <img src="{{ asset('product_photo') }}/{{ $products->product_photo }}" style="border-redious:5px" width="200px" height="150px">
+                </div>
+                <div class="form-group">
                     <label for="exampleFormControlFile1">Product Photo</label>
                     <input type="file" name="product_photo" class="form-control-file" id="exampleFormControlFile1" value="{{ $products->product_photo }}" >
                 </div>
