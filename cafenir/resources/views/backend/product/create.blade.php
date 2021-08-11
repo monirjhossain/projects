@@ -16,10 +16,19 @@
                     <label for="exampleInputEmail1">Product Name</label>
                     <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Name">
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="exampleInputEmail1">Product Elements</label>
                     <input type="text" name="element" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Elements">
+                </div> --}}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Product Category</label>
+                    <select name="p_category" id="" class="form-control">
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
+
                 <div class="form-group">
                     <label for="exampleInputEmail1">Product Price</label>
                     <input type="text" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Price">

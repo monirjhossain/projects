@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use Illuminate\Http\Request;
 
 class BackendController extends Controller
@@ -11,7 +12,12 @@ class BackendController extends Controller
     }
 
     public function contact(){
-        return view('backend.contact.index');
+        $contacts = Contact::all();
+        return view('backend.contact.index', [
+            'contacts' => $contacts
+        ]);
+
+        
     }
     
 }

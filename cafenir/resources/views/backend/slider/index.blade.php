@@ -33,7 +33,10 @@
                         <td>{{ $slider->title }}</td>
                         <td>{{ $slider->description }}</td>
                         <td><img src="{{ asset('slider_photo/'. $slider->slider_photo) }}" height="50" width="70" alt=""></td>
-                        <td><a href="slider.destroy/{{ $slider->id }}" class="btn btn-danger">Delete</a></td> 
+                        <td>
+                            <a href="slider-edit/{{ $slider->id }}" class="btn btn-info">Edit</a>
+                            <a href="slider.destroy/{{ $slider->id }}" class="btn btn-danger">Delete</a>
+                        </td> 
                         </tr>
                         @endforeach
                     </tbody>

@@ -28,6 +28,7 @@ class CategoryController extends Controller
 
     public function categorySave(Request $request)
     {
+        // return $request;
         $request->validate([
             'name' => 'required',
             'parent_category_id' => 'required',
@@ -43,7 +44,7 @@ class CategoryController extends Controller
             'parent_category_id' => $request->parent_category_id,
             'category_photo' => $category_photo
         ]);
-        return redirect('/admin/category')->with('success', 'Category Uploaded successfully');
+        return redirect('admin/category')->with('success', 'Category Uploaded successfully');
     }
 
     public function categoryEdit($id){

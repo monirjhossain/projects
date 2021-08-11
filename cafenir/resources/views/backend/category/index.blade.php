@@ -31,8 +31,7 @@
                         <tr>
                         <td>{{ $loop->index+1 }}</td>
                         <td>{{ $category->name }}</td>
-
-                        <td>{{ $category->parent_category_id }}</td>
+                        <td>{{ $category->Parent_category->p_name }}</td>
 
                         <td><img src="{{ asset('category_photo/'. $category->category_photo) }}" height="50" width="70" alt=""></td>
                         <td>

@@ -20,7 +20,7 @@
                         <tr>
                         <th scope="col">SL</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Elemets</th>
+                        <th scope="col">Product Category</th>
                         <th scope="col">Price</th>
                         <th scope="col">Photo</th>
                         <th scope="col">Action</th>
@@ -31,7 +31,7 @@
                         <tr>
                         <td>{{ $loop->index+1 }}</td>
                         <td>{{ $product->name }}</td>
-                        <td>{{ $product->element }}</td>
+                        <td>{{ $product->category->name }}</td>
                         <td>{{ $product->price }}</td>
                         <td><img src="{{ asset('product_photo/'. $product->product_photo) }}" height="50" width="70" alt=""></td>
                         

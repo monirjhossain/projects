@@ -13,27 +13,21 @@
                         <th scope="col">SL</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Quantity</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Message</th>
                         </tr>
                     </thead>
+                    @foreach ($contacts as $contact)
                     <tbody>
                         <tr>
-                        <th scope="row">1</th>
-                        <td>Monir Hossain</td>
-                        <td>monirjhossain@gmail.com</td>
-                        <td>0185625369</td>
-                        <td>Narayanganj</td>
-                        <td>5 July</td>
-                        <td>Evening</td>
-                        <td>Espresso Coffee</td>
-                        <td>500 Cup</td>
+                        <td>{{ $loop->index+1 }}</td>
+                        <td>{{ $contact->name }}</td>
+                        <td>{{ $contact->email }}</td>
+                        <td>{{ $contact->subject }}</td>
+                        <td>{{ $contact->message }}</td>
                         </tr>
                     </tbody>
+                    @endforeach
                 </table>
             </div>
         </div>

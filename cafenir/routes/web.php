@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 
 Auth::routes();
@@ -14,8 +15,9 @@ Route::get('/reservation', 'FrontendController@reservation');
 Route::post('/reservation-confirm', 'FrontendController@reservationConfirm');
 
 Route::get('/contact', 'FrontendController@contact');
-Route::get('admin/dashboard', 'BackendController@index');
+Route::post('/contact-add', 'FrontendController@addcontact');
 Route::get('admin/contact', 'BackendController@contact');
+Route::get('admin/dashboard', 'BackendController@index');
 
 //Parent Category Routes
 Route::get('admin/parentcategory', 'ParentCategoryController@index');
@@ -45,7 +47,9 @@ Route::get('admin/product.destroy/{id}', 'ProductController@destroy');
 
 Route::get('admin/slider', 'SliderController@index');
 Route::get('admin/create/slider', 'SliderController@create');
-Route::post('admin/slider-save', 'SliderController@silerSave');
+Route::post('admin/slider-save', 'SliderController@sliderSave');
+Route::get('admin/slider-edit/{id}', 'SliderController@sliderEdit');
+Route::put('admin/slider-update/{id}', 'SliderController@sliderUpdate');
 Route::get('admin/slider.destroy/{id}', 'SliderController@destroy');
 
 

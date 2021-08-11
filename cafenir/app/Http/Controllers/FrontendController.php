@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Slider;
 use App\Category;
+use App\Contact;
 use App\Reservation;
 use Illuminate\Http\Request;
 
@@ -59,8 +60,34 @@ class FrontendController extends Controller
         ]);
         return redirect('/reservation')->with('success', 'Congratulations! your reservation proccess has been successfull');
     }
-    
-    public function contact(){
-        return view('frontend.contact');
+
+
+    public function contact()
+    {
+        $contacts = Contact::all();
+        return view('frontend.contact', [
+            'contacts' => $contacts
+        ]);
     }
+
+    public function addcontact(Request $request)
+    {
+        // dd($request);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required'
+        ]);
+
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message
+        ]);
+
+        return redirect('/contact')->with('success', 'Your Message has been sent');
+    }
+    
 }
