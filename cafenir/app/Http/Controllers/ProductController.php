@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -66,13 +67,21 @@ class ProductController extends Controller
         $productupdate->name = $request->input('name');
         $productupdate->p_category = $request->input('p_category');
         $productupdate->price = $request->input('price');
-        $productupdate->product_photo = $request->input('product_photo');
+        // $productupdate->product_photo = $request->input('product_photo');
 
+        if($request->hasFile('product_photo')){
             $file = $request->file('product_photo');
             $extention = $file->getClientOriginalExtension();
             $product_photo = time() . '.' . $extention;
             $file->move('product_photo', $product_photo);
-            $productupdate->product_photo = $product_photo;
+
+            $file_path = 'product_photo/'. $productupdate->$product_photo;
+            if(Storage::disk('upload')->exists($file_path)){
+                Storage::disk('upload')->delete('product_photo/'. $productupdate->$product_photo);
+            }
+        }
+        
+            // $productupdate->product_photo = $product_photo;
         
         $productupdate->Save();
         return redirect('admin/product')->with('success', 'Your Product has been Updated!');

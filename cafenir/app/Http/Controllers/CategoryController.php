@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-
 use App\ParentCategory;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -67,7 +67,7 @@ class CategoryController extends Controller
         $categoryupdate = Category::find($id);
         $categoryupdate->parent_category_id = $request->input('parent_category_id');
         $categoryupdate->name = $request->input('name');
-        $categoryupdate->category_photo = $request->input('category_photo');
+        // $categoryupdate->category_photo = $request->input('category_photo');
 
 
         if($request->hasFile('category_photo')){
@@ -75,6 +75,12 @@ class CategoryController extends Controller
             $extention = $file->getClientOriginalExtension();
             $category_photo = time() . '.' . $extention;
             $file->move('category_photo', $category_photo);
+            
+
+            $file_path = 'category_photo/'.$categoryupdate->category_photo;
+            if(Storage::disk('upload')->exists($file_path)){
+                Storage::disk('upload')->delete('category_photo/'.$categoryupdate->category_photo);
+            }
             $categoryupdate->category_photo = $category_photo;
         }
         $categoryupdate->Save();
@@ -85,6 +91,10 @@ class CategoryController extends Controller
     {
         //dd($request);
         $categorydelete = Category::find($id);
+       $file_path =  'category_photo/'.$categorydelete->category_photo;
+        if(Storage::disk('upload')->exists($file_path)){
+             Storage::disk('upload')->delete('category_photo/'.$categorydelete->category_photo);
+        }
         $categorydelete->delete();
         return redirect('/admin/category')->with('success', 'Your Category has been deleted');
     }

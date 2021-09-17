@@ -24,6 +24,7 @@
                     </thead>
                     <tbody>
                         @foreach ($reservations as $reservation)
+                        
                         <tr>
                         <td>{{ $loop->index+1 }}</td>
                         <td>{{ $reservation->name }}</td>
@@ -32,7 +33,7 @@
                         <td>{{ $reservation->address }}</td>
                         <td>{{ $reservation->date }}</td>
                         <td>{{ $reservation->time }}</td>
-                        <td>{{ $reservation->category }}</td>
+                        <td>{{ $reservation->reservation_category->name }}</td>
                         <td>{{ $reservation->quantity }}</td>
                         <td>{{ $reservation->message }}</td>
                         </tr>
